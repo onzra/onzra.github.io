@@ -4,27 +4,40 @@
 
     gem install jekyll bundler
 
-Install packages n shit for local dev/testing/blogging.
-
 ## Blogging
 
 ### Writing a Post
 
-Templating and syntax highlighting: https://jekyllrb.com/docs/templates/
+Create a new markdown file in `_posts` in the format `YYYY-MM-DD-post-title.md`. For example, "2017-03-16-blog-coming-soon.md`. Then add some YAML metadata at the top like:
 
-Posts with a `date:` value in the future will not show up until the site is rebuilt after that date.
+    ---
+    layout: post
+    title:  "Coming Soon"
+    date:   2017-03-16 16:14:06 -0700
+    ---
+
+The rest of the file is your blog post, written in markdown.
+
+- Templating and syntax highlighting: https://jekyllrb.com/docs/templates/
+- Posts with a `date:` value in the future will not show up until the site is rebuilt after that date.
 
 ### Preview
+
+To preview your posts before publishing them to the website:
 
     bundle exec jekyll serve
     http://127.0.0.1:4000/
 
-Jekyll will automaticall detect changes to files and re-build. You can refresh to see changes to your blog post.
-
-### Build
-
-build process?
+Jekyll will automatically detect changes to files and re-build. You can refresh to see changes to your blog post.
 
 ## Publishing
 
-How to publish to production website.
+Simply pushing changes to master will trigger a new build of the production website, effectively "publishing" your new posts.
+
+## TODO
+
+- Different theme.
+- Test out the setup and publishing on a fresh machine to make sure we didn't miss any steps.
+- Add some instructions on handling images.
+- Write some initial blog posts to start things off.
+- Fill out some basic content pages like about, team, location, etc. Look at what we have on the current site.
