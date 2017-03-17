@@ -2,7 +2,8 @@
 
 ## Setup
 
-    gem install jekyll bundler
+    sudo gem install jekyll bundler
+    bundle install
 
 ## Blogging
 
@@ -32,12 +33,14 @@ Jekyll will automatically detect changes to files and re-build. You can refresh 
 
 ## Publishing
 
-Simply pushing changes to master will trigger a new build of the production website, effectively "publishing" your new posts.
+Simply pushing changes to master will trigger a new build of the production website, effectively "publishing" your new posts to https://onzra.github.io/.
 
 ## TODO
 
 - Different theme.
+ - Trying minimal-mistakes-jekyll, but need to fix some gem build problems first (let's use rvm to install latest version of ruby)
 - Test out the setup and publishing on a fresh machine to make sure we didn't miss any steps.
 - Add some instructions on handling images.
 - Write some initial blog posts to start things off.
 - Fill out some basic content pages like about, team, location, etc. Look at what we have on the current site.
+- Move to install gems in local .vendor folder instead of globally.
