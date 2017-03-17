@@ -1,8 +1,6 @@
 ---
 title:  "Coming Soon"
 date:   2017-03-16 16:14:06 -0700
-categories:
-  - Test Category
 tags:
   - test
 ---

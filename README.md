@@ -53,8 +53,7 @@ You should also update gem:
 
 ## TODO
 
-- Different theme.
- - Trying minimal-mistakes-jekyll, but need to fix some gem build problems first (let's use rvm to install latest version of ruby)
+- Fill out basic content like Facebook, bio, about. Add images and stuff to make site look reasonably good.
 - Test out the setup and publishing on a fresh machine to make sure we didn't miss any steps.
 - Add some instructions on handling images.
 - Write some initial blog posts to start things off.
