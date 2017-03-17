@@ -2,6 +2,8 @@
 
 ## Setup
 
+Before you install dependencies, make sure [ruby is up to date](#Ruby).
+
     sudo gem install jekyll bundler
     bundle install
 
@@ -34,6 +36,20 @@ Jekyll will automatically detect changes to files and re-build. You can refresh 
 ## Publishing
 
 Simply pushing changes to master will trigger a new build of the production website, effectively "publishing" your new posts to https://onzra.github.io/.
+
+## Ruby
+
+You'll want the latest version of ruby, the easiest way to get that is to use rvm:
+
+    curl -L https://get.rvm.io | bash -s stable --auto-dotfiles --autolibs=enable --ruby
+
+Now if you open a new shell you should have `rvm` available and an updated `ruby --version`.
+
+You should also update gem:
+
+    gem install rubygems-update
+    update_rubygems
+    gem update --system
 
 ## TODO
 

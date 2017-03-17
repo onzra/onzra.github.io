@@ -1,7 +1,7 @@
 ---
-layout: page
+layout: single
 title: About
-permalink: /about/
+permalink: /about
 ---
 
 This is where the about page will be when we finish building the site.
