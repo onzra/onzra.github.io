@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en"
-title                    : "ONZRA Development Blog 3"
+title                    : "ONZRA"
 title_separator          : "-"
 name                     : "ONZRA"
 description              : "ONZRA development blog"
@@ -78,8 +78,8 @@ analytics:
 # Site Author
 author:
   name             : "ONZRA"
-  avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Some kind of bio?"
+  avatar           : "/assets/img/onzra.jpg"
+  bio              : "Security, Development, and Research Firm based in California"
   location         : "Hollywood, CA"
   email            :
   uri              :
@@ -87,9 +87,9 @@ author:
   codepen          :
   dribbble         :
   flickr           :
-  facebook         :
+  facebook         : https://www.facebook.com/ONZRA/
   foursquare       :
-  github           :
+  github           : https://github.com/onzra
   google_plus      :
   keybase          :
   instagram        :
@@ -100,7 +100,7 @@ author:
   stackoverflow    : # "123456/username" (the last part of your profile url, e.g. http://stackoverflow.com/users/123456/username)
   steam            :
   tumblr           :
-  twitter          :
+  twitter          : https://twitter.com/onzra
   vine             :
   weibo            :
   xing             :

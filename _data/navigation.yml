@@ -1,4 +1,8 @@
 # main links
 main:
-  - title: "About"
-    url: "/about"
+  - title: "Services"
+    url: "/services"
+  - title: "Clients"
+    url: "/clients"
+  - title: "Team"
+    url: "/team"

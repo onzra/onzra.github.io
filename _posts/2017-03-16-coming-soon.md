@@ -4,50 +4,73 @@ date:   2017-03-16 16:14:06 -0700
 tags:
   - test
 ---
-ONZRA blog coming soon!
-* Lists within lists do not break the ordered list numbering order
-* Your list styles go deep enough.
 
-### Ordered -- Unordered -- Ordered
+Test post with some syntax highlighting and stuff.
 
-1. ordered item
-2. ordered item 
-  * **unordered**
-  * **unordered** 
-    1. ordered item
-    2. ordered item
-3. ordered item
-4. ordered item
+I just stumbled on a bug in CakePHP that prevents related child records from being returned when only selecting a single field from the parent. It looks something like this:
 
-### Ordered -- Unordered -- Unordered
+```php
+<?php
+$this->Model->find('all', array(
+  'contain' => array(
+    'Parent' => array(
+      'fields' => array('id', 'type'),
+      'Child' => array(
+        'fields' => array('id', 'type')
+      )
+    )
+  )
+);
+// Returns as expected
+//array(
+//  'Model' => array(...),
+//  'Parent' => array(
+//    'id' => '',
+//    'type' => '',
+//    'Child' => array(
+//      array(
+//        'id' => '',
+//        'type' => ''
+//      ),
+//      ...
+//    )
+//  )
+//)
+```
 
-1. ordered item
-2. ordered item 
-  * **unordered**
-  * **unordered** 
-    * unordered item
-    * unordered item
-3. ordered item
-4. ordered item
+Now if we modify the contain for Parent to return only **one field** we lose all Child records:
 
-### Unordered -- Ordered -- Unordered
+```php
+<?php
+$this->Model->find('all', array(
+  'contain' => array(
+    'Parent' => array(
+      'fields' => array('id'),
+      'Child' => array(
+        'fields' => array('id', 'type')
+      )
+    )
+  )
+);
+// Returns no Child records
+//array(
+//  'Model' => array(...),
+//  'Parent' => array(
+//    'id' => '',
+//    'type' => '',
+//  )
+//)
+```
 
-* unordered item
-* unordered item 
-  1. ordered
-  2. ordered 
-    * unordered item
-    * unordered item
-* unordered item
-* unordered item
+This is due to a bug in `Model/DataSource/DboSource.php`:
 
-### Unordered -- Unordered -- Ordered
+```php
+<?php
+//...
+if (count($merge[0][$association]) > 1) {
+    foreach ($merge[0] as $assoc => $data2) {
+//...
+```
+Since Parent only has one field, `id`, it does not do the merge. This has been corrected in CakePHP 2.4.2 to `!empty()` instead of `count() > 1`.
 
-* unordered item
-* unordered item 
-  * unordered
-  * unordered 
-    1. **ordered item**
-    2. **ordered item**
-* unordered item
-* unordered item
+This has been fixed in the CakePHP master branch with [this commit](https://github.com/cakephp/cakephp/commit/940a51b5faa0b88fa5334764c19f93fe8364ef30).
